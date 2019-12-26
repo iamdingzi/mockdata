@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MockDataController {
 
 
+    //获取价态
     @PostMapping("getHotelDetails")
     public String hotelRooms(@RequestBody String req) {
         System.out.println(req);
@@ -156,10 +157,21 @@ public class MockDataController {
                 "    }\n" +
                 "}";
     }
-
+    //可定检查
     @PostMapping("check")
     public String check(@RequestBody String req) {
         System.out.println(req);
         return "{\"Hotel\":{\"CityCode\":\"810100\",\"CurrencyCode\":\"CNY\",\"HotelCode\":\"23297216000\",\"CheckOut\":\"2019-12-27\",\"RoomTypes\":[{\"RoomTypeEnglishName\":\"都会高级客房\",\"RoomTypeName\":\"都会高级客房\",\"RateInfos\":[{\"TotalTaxAndFee\":0,\"TotalBasePrice\":182,\"RateName\":\"标准价\",\"Refundable\":false,\"RateKey\":\"N_2329721_23449533_101227667778\",\"RateEnglishName\":\"标准价\",\"CurrencyCode\":\"CNY\",\"RateCode\":\"N_2329721_23449533_101227667778\",\"Board\":{\"BoardCount\":0,\"BoardCode\":\"No\"},\"MaxChildren\":0,\"MaxOccupancy\":1,\"TotalPrice\":182,\"PaymentType\":1,\"Allotment\":1,\"RateComments\":{\"RateComment\":[\"根据酒店所在地当地法规，您可能还需在酒店支付额外税费。\"]},\"refundableJson\":\"-refundable:1-cpApply:[]\"}],\"RoomTypeCode\":\"23449533\",\"MaxRoomOccupancy\":1}],\"PaymentType\":1,\"CheckIn\":\"2019-12-26\",\"Name\":\"帆船精品酒店\",\"EnglishName\":\"帆船精品酒店\",\"MinPrice\":500,\"MinTaxPrice\":0},\"Error\":{\"Code\":\"CHECK_ORDER_SUCCESS\",\"Message\":\"可定检查成功\"}}";
+    }
+    //下单
+    @PostMapping("order")
+    public String order(@RequestBody String req) {
+        System.out.println(req);
+        return "{\"TaoBaoOrderId\":\"577837540252854698\",\"Error\":{\"Code\":\"WAIT_CONFIRM_ORDER\",\"Message\":\"待确认\"}}";
+    }
+    //取消
+    public String cancel(@RequestBody String req) {
+        System.out.println(req);
+        return "";
     }
 }
